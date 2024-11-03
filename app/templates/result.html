@@ -1,0 +1,21 @@
+<!-- app/templates/result.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результат Классификации Возраста</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Результат Классификации</h1>
+    <div>
+        <h2>Загруженное Изображение:</h2>
+        <img src="/static/uploads/{{ filename }}" alt="Загруженное Изображение" width="300">
+    </div>
+    <div>
+        <h2>Предсказанный Класс Возраста:</h2>
+        <p>{{ predicted_class }}</p>
+    </div>
+    <a href="/">Загрузить Другое Изображение</a>
+</body>
+</html>
