@@ -1,14 +1,16 @@
 [tool.poetry]
-name = "face_age_classification"
+name = "age-by-photo"
 version = "0.1.0"
 description = "Проект по классификации возрастных классов лиц с использованием ResNet50 и переноса обучения."
-authors = ["Ваше Имя <your.email@example.com>"]
-license = "MIT"
+authors = ["Temirlan Zhekenov <t.zhekeno@gmail.com>"]
+readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "3.10.11"
 pandas = "^1.5.3"
-numpy = "^1.24.3"
+numpy = ">=1.22,<1.24"
+ipykernel = "^6.22.0"
 matplotlib = "^3.7.1"
 seaborn = "^0.12.2"
 opencv-python = "^4.7.0.72"
@@ -16,14 +18,22 @@ Pillow = "^9.5.0"
 tqdm = "^4.65.0"
 albumentations = "^1.3.0"
 mtcnn = "^0.1.1"
-tensorflow = "^2.12.0"
-scikit-learn = "^1.2.0"  # Добавлено для дополнительных метрик и утилит
+torch = "^2.0.1"
+torchvision = "^0.15.2"
+scikit-learn = "^1.2.0"  # Для дополнительных метрик и утилит
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+python-multipart = "^0.0.17"
+jinja2 = "^3.1.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.3.1"
 black = "^23.1.0"
 isort = "^5.12.0"
 jupyter = "^1.0.0"  # Для работы с Jupyter Notebook
+
+[tool.poetry.scripts]
+install-jupyter-kernel = "scripts.install_kernel:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
