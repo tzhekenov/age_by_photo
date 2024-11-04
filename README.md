@@ -1,43 +1,96 @@
-# Age classification from face image
-Classification of age from face image project
+# Классификация Возраста по Изображению Лица
 
-## Project Setup
+Проект по определению возраста человека на основе фотографии лица с использованием глубокого обучения.
 
-To set up the project, follow these steps:
-1. **Install Poetry**:
-    If you don't have Poetry installed, you can install it by following the instructions on the [Poetry website](https://python-poetry.org/docs/#installation).
+## Описание проекта
 
-    For example, using `curl`:
+Этот проект предназначен для определения возраста человека по фотографии лица с использованием модели глубокого обучения на основе архитектуры ResNet50 и методов переноса обучения. Реализованы методы повышения качества входных изображений для улучшения точности классификации.
+
+## Технологии
+
+- **Python 3.10.11**
+- **PyTorch** — построение и обучение модели
+- **FastAPI** — создание веб-приложения
+- **Uvicorn** — ASGI-сервер для запуска FastAPI
+- **Poetry** — управление зависимостями и виртуальным окружением
+- **OpenCV** — обработка изображений
+- **Albumentations** — аугментация данных
+- **MTCNN** — детекция лиц
+- **Jinja2** — шаблоны HTML
+
+## Структура проекта
+
+age-by-photo/
+├── pyproject.toml
+├── README.md
+├── app/
+│   ├── init.py
+│   ├── main.py
+│   ├── inference.py
+│   ├── static/
+│   │   └── uploads/
+│   └── templates/
+│       ├── index.html
+│       └── result.html
+├── scripts/
+│   ├── install_kernel.py
+│   ├── augment_data.py
+│   └── create_train_augmented_csv.py
+├── models/
+│   └── best_model.pth
+├── data/
+│   ├── train/
+│   └── train_augmented/
+├── logs/
+│   ├── train_model.log
+│   ├── install_kernel.log
+│   ├── augment_data.log
+│   └── create_train_augmented_csv.log
+└── .gitignore
+
+## Установка
+
+1. **Установка Poetry**:
+    Если у вас не установлен Poetry, вы можете установить его, следуя инструкциям на [сайте Poetry](https://python-poetry.org/docs/#installation).
+
+    Например, используя `curl`:
     ```sh
     curl -sSL https://install.python-poetry.org | python3 -
     ```
 
-    Or using `pip`:
+    Или используя `pip`:
     ```sh
     pip install poetry
     ```
 
-2. **Clone the repository**:
+2. **Клонирование репозитория**:
     ```sh
     git clone https://github.com/tzhekenov/age_by_photo.git
     cd age_by_photo
     ```
 
-3. **Initialize the Poetry environment**:
+3. **Инициализация окружения Poetry**:
     ```sh
     poetry install
     ```
 
-4. **Activate the Poetry shell**:
+4. **Активация окружения Poetry**:
     ```sh
     poetry shell
     ```
 
-This will activate the virtual environment created by Poetry.
+Это активирует виртуальное окружение, созданное Poetry.
 
-5. **Add the environment to Jupyter kernel**:
+5. **Добавление окружения в Jupyter kernel**:
     ```sh
     python -m ipykernel install --user --name age-by-photo-py3.11
     ```
 
-This will install all the dependencies and set up the Jupyter kernel for the project.
+Это установит все зависимости и настроит Jupyter kernel для проекта.
+
+## Запуск приложения
+
+6. **Для запуска веб-приложения используется Uvicorn:**:
+    ```sh
+    poetry run uvicorn app.main:app --reload
+    ```
