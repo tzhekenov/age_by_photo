@@ -20,11 +20,12 @@
 
 ## Структура проекта
 
+<pre>
 age-by-photo/
 ├── pyproject.toml
 ├── README.md
 ├── app/
-│   ├── init.py
+│   ├── __init__.py
 │   ├── main.py
 │   ├── inference.py
 │   ├── static/
@@ -33,13 +34,16 @@ age-by-photo/
 │       ├── index.html
 │       └── result.html
 ├── scripts/
-│   ├── install_kernel.py
-│   ├── augment_data.py
-│   └── create_train_augmented_csv.py
+│   ├── check_augmented.py
+│   ├── evalute_model.py
+│   └── train.py
 ├── models/
 │   └── best_model.pth
 ├── data/
+│   ├── test/
 │   ├── train/
+│   ├── train_augmented.csv
+│   ├── test.csv
 │   └── train_augmented/
 ├── logs/
 │   ├── train_model.log
@@ -47,6 +51,7 @@ age-by-photo/
 │   ├── augment_data.log
 │   └── create_train_augmented_csv.log
 └── .gitignore
+</pre>
 
 ## Установка
 
